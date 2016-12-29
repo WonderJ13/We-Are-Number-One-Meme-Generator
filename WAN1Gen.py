@@ -2,7 +2,7 @@ from moviepy.editor import *
 
 video = VideoFileClip("We_Are_Number_One.mp4")
 
-infile = input("Give me some video file to replace every \"One\" with: ")
+infile = raw_input("Give me some video file to replace every \"One\" with: ")
 
 video2 = VideoFileClip(infile)
 
