@@ -31,7 +31,7 @@ class Window(QtWidgets.QMainWindow, interface.Ui_MainWindow):
 		self.videoFile, _ = QtWidgets.QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
 		self.inputEdit.setText(self.videoFile)
 
-		self.videoFile = VideoFileClip(self.videoFile)
+		self.videoFile = VideoFileClip(self.videoFile).set_fps(23).resize((1280, 720))
 
 
 	def saveVideo(self):
@@ -44,10 +44,10 @@ class Window(QtWidgets.QMainWindow, interface.Ui_MainWindow):
 
 	def combineVideos(self):
 		imageio.plugins.ffmpeg.download()
-		times = [(39.2, 39.8), (45.2, 45.7), (56.9, 57.5), ((1, 17.9), (1, 18.3)),
-		((1, 23.7), (1, 24.3)), ((1, 31.1), (1, 31.7)), ((2, 12.6), (2, 13.2)),
-		((2, 19.3), (2, 20.1)), ((2, 36.3), (2, 36.8)), ((2, 42.3), (2, 42.8)),
-		((2, 43.8), (2, 44.3)), ((2, 45.3), (2, 45.8))]
+		times = [(39.21739, 39.82608), (45.21739, 45.69565), (56.91304, 57.52173), ((1, 17.91304), (1, 18.30434)),
+		((1, 23.69565), (1, 24.30434)), ((1, 31.086956), (1, 31.69565)), ((2, 12.60869), (2, 13.21739)),
+		((2, 19.30434), (2, 20.086956)), ((2, 36.30434), (2, 36.82608)), ((2, 42.30434), (2, 42.82608)),
+		((2, 43.82608), (2, 44.30434)), ((2, 45.30434), (2, 45.82608))]
 
 		videoparts = []
 
